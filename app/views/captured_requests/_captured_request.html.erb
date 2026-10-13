@@ -1,0 +1,20 @@
+<div id="<%= dom_id(captured_request) %>" class="capture">
+  <header>
+    <span class="verb verb-<%= captured_request.http_method.downcase %>"><%= captured_request.http_method %></span>
+    <span><%= l captured_request.created_at, format: :long %></span>
+    <span class="muted">de <%= captured_request.ip %></span>
+  </header>
+
+  <% if captured_request.query_params.present? %>
+    <h4>Query params</h4>
+    <pre><%= JSON.pretty_generate(captured_request.query_params) %></pre>
+  <% end %>
+
+  <h4>Body</h4>
+  <pre><%=captured_request.pretty_body.presence || "(vazio)" %></pre>
+
+  <details>
+    <summary>Headers (<%= captured_request.headers.size %>)</summary>
+    <pre><%= JSON.pretty_generate(captured_request.headers) %></pre>
+  </details>
+</div>

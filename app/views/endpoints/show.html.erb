@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= @endpoint.name %></h1>
+
+<p>Envie qualquer requisição para esta URL:</p>
+<pre><%= hook_url(token: @endpoint.token) %></pre>
+
+<%= turbo_stream_from @endpoint %>
+
+<h2>Requisições recebidas</h2>
+<div id="captured_requests">
+  <%= render @captured_requests %>
+</div>
+
+<p>
+  <%= link_to "Editar", edit_endpoint_path(@endpoint) %> |
+  <%= link_to "Voltar", endpoints_path %>
+</p>
+
+<%= button_to "Apagar endpoint", @endpoint, method: :delete %>

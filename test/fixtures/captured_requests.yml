@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  endpoint: one
+  http_method: MyString
+  headers: 
+  body: MyText
+  query_params: 
+  ip: MyString
+  content_type: MyString
+
+two:
+  endpoint: two
+  http_method: MyString
+  headers: 
+  body: MyText
+  query_params: 
+  ip: MyString
+  content_type: MyString
